@@ -17,7 +17,7 @@ public class CalculatorServiceImpl implements CalculatorService {
 
     @Override
     public long minus(int num1, int num2){
-        return num1 - num2;
+        return (long) num1 - num2;
     }
 
     @Override
@@ -31,6 +31,6 @@ public class CalculatorServiceImpl implements CalculatorService {
 
     @Override
     public long multiply(int num1, int num2){
-        return num1 * num2;
+        return (long) num1 * num2;
     }
 }

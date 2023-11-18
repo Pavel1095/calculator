@@ -26,22 +26,40 @@ class ParametrizedCalculatorServiceImplTest {
         assertEquals((long) num1 + num2, result);
     }
 
-    @Test
-    void minus() {
+    @ParameterizedTest
+    @MethodSource ("provideNums")
+    void minus(int num1, int num2) {
+        long result = calculatorService.minus(num1, num2);
+
+        System.out.println(result);
+
+        assertEquals((long) num1 - num2, result);
     }
 
-    @Test
-    void divide() {
+    @ParameterizedTest
+    @MethodSource ("provideNums")
+    void divide (int num1, int num2) {
+        double result = calculatorService.divide(num1, num2);
+
+        System.out.println(result);
+
+        assertEquals((double) num1 / num2, result);
     }
 
-    @Test
-    void multiply() {
+    @ParameterizedTest
+    @MethodSource ("provideNums")
+    void multiply (int num1, int num2) {
+        long result = calculatorService.multiply(num1, num2);
+
+        System.out.println(result);
+
+        assertEquals((long) num1 * num2, result);
     }
 
     private static Stream<Arguments> provideNums(){
         return Stream.of(
                 Arguments.of(5, 4),
-                Arguments.of(5, -4),
+                Arguments.of(5, -1),
                 Arguments.of(Integer.MAX_VALUE, Integer.MAX_VALUE));
     }
 }
